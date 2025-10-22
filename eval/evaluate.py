@@ -5,6 +5,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 from tqdm import tqdm
 import os
+from hallucination_evaluator import HallucinationEvaluator
+
 # Optional: use huggy llm-loading utilities if using safetensors
 
 def load_model(model_dir, device='cuda'):
@@ -36,17 +38,42 @@ def main():
 
     tokenizer, model = load_model(args.model_dir)
     samples = load_benchmark(args.bench)
+    
+    # Initialize the comprehensive hallucination evaluator
+    hallucination_evaluator = HallucinationEvaluator()
 
     results = []
-    for s in tqdm(samples):
+    for s in tqdm(samples, desc="Evaluating Baseline Model"):
         prompt = s['prompt']
+        reference_answer = s.get("answer")
+        
+        # Generate the model's prediction
         pred = run_inference(tokenizer, model, prompt, max_new_tokens=256)
-        results.append({"id": s.get("id"), "prompt": prompt, "reference": s.get("answer"), "pred": pred})
+        
+        # Evaluate the prediction for hallucinations
+        # For the baseline run, retrieved_docs is empty as no RAG is used.
+        # The knowledge_base is also None.
+        eval_metrics = hallucination_evaluator.evaluate_response(
+            response=pred,
+            retrieved_docs="", # No retrieval for baseline
+            ground_truth=reference_answer,
+            knowledge_base=None # No KB for baseline
+        )
+
+        result_item = {
+            "id": s.get("id"),
+            "prompt": prompt,
+            "reference": reference_answer,
+            "prediction": pred,
+            "evaluation": eval_metrics
+        }
+        results.append(result_item)
+
     # write outputs
     with open(args.out, "w", encoding="utf-8") as fh:
         for r in results:
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
-    print("Wrote results to", args.out)
+    print(f"Wrote detailed evaluation results to {args.out}")
     # Later: run benchmark scoring scripts (HaluBench, RAGTruth, TruthfulQA) here.
 
 if __name__ == "__main__":
