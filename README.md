@@ -62,10 +62,6 @@ LoRA adapters for experiments are available at the HuggingFace repo: `mrhello291
 * The `dpop_old_strat` folder contains older/best weights.
 * The `dpop_new_strat` folder contains latest LoRA weights.
 
-(Attached screenshot of the HuggingFace model repo is included below.)
-
-![HF model repo](/mnt/data/78815412-31c6-4acb-b880-1e098e5a7889.png)
-
 ---
 
 ## Datasets
@@ -74,15 +70,9 @@ The custom datasets used for training (preprocessed preference pairs) are on Hug
 
 * `final_data/` contains the final `.jsonl` files used for training: `dpo_pairs_easy.jsonl`, `dpo_pairs_medium.jsonl`, `dpo_pairs_hard.jsonl`, and `dpo_pairs_hard_improved.jsonl`.
 
-(Attached screenshot of dataset repo.)
-
-![HF dataset repo](/mnt/data/1e7db1a1-7275-4c95-9c19-b508045c2326.png)
-
 You can download the dataset with the `huggingface_hub` CLI or from the web UI.
 
-(Example — final_data listing):
 
-![final data listing](/mnt/data/4b78bc90-6596-44f9-b845-7a0412a029d1.png)
 
 ---
 
