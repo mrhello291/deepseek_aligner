@@ -1,0 +1,330 @@
+luate
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+
+Successfully installed absl-py-2.3.1 accelerate-1.11.0 aiohappyeyeballs-2.6.1 aiohttp-3.13.2 aiosignal-1.4.0 anyio-4.1
+1.0 async-timeout-5.0.1 attrs-25.4.0 bitsandbytes-0.48.2 click-8.3.0 datasets-4.4.1 dill-0.4.0 evaluate-0.4.6 exceptio
+ngroup-1.3.0 frozenlist-1.8.0 fsspec-2025.10.0 h11-0.16.0 hf-xet-1.2.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-0.3
+6.0 joblib-1.5.2 multidict-6.7.0 multiprocess-0.70.18 nltk-3.9.2 packaging-25.0 pandas-2.3.3 peft-0.17.1 propcache-0.4
+.1 psutil-7.1.3 pyarrow-22.0.0 python-dateutil-2.9.0.post0 pytz-2025.2 regex-2025.11.3 rouge_score-0.1.2 safetensors-0
+.6.2 scipy-1.15.3 six-1.17.0 sniffio-1.3.1 sympy-1.13.1 tokenizers-0.22.1 tqdm-4.67.1 transformers-4.57.1 tzdata-2025.
+2 xxhash-3.6.0 yarl-1.22.0
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate rag_train_env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) teaching@dslab:~/g4$ conda activate rag_train_env
+(rag_train_env) teaching@dslab:~/g4$ ls
+data_prep  env1.yml  environment.yml  models  results  training
+(rag_train_env) teaching@dslab:~/g4$ python training/train_rag_sft.py
+Loading tokenizer and model in 4-bit ...
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████| 7/7 [00:12<00:00,  1.80s/it]
+trainable params: 13,631,488 || all params: 8,043,892,736 || trainable%: 0.1695
+PEFT Lora parameters: None
+Loading training data from data_prep/train_nq_rag.jsonl and data_prep/squad_15k.jsonl...
+Loaded 30632 NQ examples and 15000 SQuAD examples
+Loading validation data from data_prep/val_nq_rag.jsonl and data_prep/val_squad.jsonl...
+Loaded 1000 NQ val examples and 1000 SQuAD val examples
+Total training examples: 45632
+Total training examples (after selection): 20000
+Total validation examples: 2000
+Loading pre-tokenized datasets...
+Initializing Trainer...
+
+================================================================================
+Starting training...
+================================================================================
+
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and
+ generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'pad_token_id
+': 128001}.
+  0%|                                                                                        | 0/7500 [00:00<?, ?it/s]
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{'loss': 1.8358, 'grad_norm': 3.4077322483062744, 'learning_rate': 9e-06, 'epoch': 0.02}
+{'loss': 0.778, 'grad_norm': 21.17133903503418, 'learning_rate': 1.88e-05, 'epoch': 0.04}
+{'loss': 0.7558, 'grad_norm': 15.350212097167969, 'learning_rate': 1.988108108108108e-05, 'epoch': 0.06}
+{'loss': 0.8265, 'grad_norm': 9.800448417663574, 'learning_rate': 1.9745945945945948e-05, 'epoch': 0.08}
+{'loss': 0.5285, 'grad_norm': 7.521709442138672, 'learning_rate': 1.9610810810810813e-05, 'epoch': 0.1}
+{'loss': 0.4587, 'grad_norm': 5.857049465179443, 'learning_rate': 1.9475675675675677e-05, 'epoch': 0.12}
+{'loss': 0.7205, 'grad_norm': 10.843900680541992, 'learning_rate': 1.934054054054054e-05, 'epoch': 0.14}
+{'loss': 0.46, 'grad_norm': 0.5494887828826904, 'learning_rate': 1.9205405405405406e-05, 'epoch': 0.16}
+{'loss': 0.533, 'grad_norm': 3.3286166191101074, 'learning_rate': 1.9070270270270274e-05, 'epoch': 0.18}
+{'loss': 0.5377, 'grad_norm': 40.19784164428711, 'learning_rate': 1.8935135135135135e-05, 'epoch': 0.2}
+{'loss': 0.3754, 'grad_norm': 6.714890003204346, 'learning_rate': 1.88e-05, 'epoch': 0.22}
+{'loss': 0.5416, 'grad_norm': 16.77205467224121, 'learning_rate': 1.8664864864864867e-05, 'epoch': 0.24}
+{'loss': 0.5843, 'grad_norm': 6.041388988494873, 'learning_rate': 1.8529729729729732e-05, 'epoch': 0.26}
+{'loss': 0.3752, 'grad_norm': 10.308574676513672, 'learning_rate': 1.8394594594594596e-05, 'epoch': 0.28}
+{'loss': 0.7295, 'grad_norm': 5.515494346618652, 'learning_rate': 1.825945945945946e-05, 'epoch': 0.3}
+{'loss': 0.766, 'grad_norm': 1.2286142110824585, 'learning_rate': 1.8124324324324326e-05, 'epoch': 0.32}
+{'loss': 2.2214, 'grad_norm': 4.212138652801514, 'learning_rate': 1.798918918918919e-05, 'epoch': 0.34}
+{'loss': 0.5206, 'grad_norm': 0.014065892435610294, 'learning_rate': 1.7854054054054055e-05, 'epoch': 0.36}
+{'loss': 0.4813, 'grad_norm': 0.0, 'learning_rate': 1.7718918918918922e-05, 'epoch': 0.38}
+{'loss': 2.1975, 'grad_norm': 4.8112006187438965, 'learning_rate': 1.7583783783783787e-05, 'epoch': 0.4}
+ 13%|█████████▌                                                              | 1000/7500 [1:50:35<12:52:38,  7.13s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:27<00:00,  1.58s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.830188251036648, 'eval_rouge1': 0.018077444918462922, 'eval_r
+ougeL': 0.018055468628577855, 'eval_runtime': 449.5097, 'eval_samples_per_second': 0.556, 'eval_steps_per_second': 0.5
+56, 'epoch': 0.4}
+{'loss': 0.6211, 'grad_norm': 24.203250885009766, 'learning_rate': 1.7448648648648648e-05, 'epoch': 0.42}
+{'loss': 0.2974, 'grad_norm': 2.1392734050750732, 'learning_rate': 1.7316216216216218e-05, 'epoch': 0.44}
+{'loss': 0.408, 'grad_norm': 17.765615463256836, 'learning_rate': 1.7181081081081082e-05, 'epoch': 0.46}
+{'loss': 0.3356, 'grad_norm': 14.828841209411621, 'learning_rate': 1.7045945945945947e-05, 'epoch': 0.48}
+{'loss': 0.4529, 'grad_norm': 9.498252868652344, 'learning_rate': 1.691081081081081e-05, 'epoch': 0.5}
+{'loss': 0.5621, 'grad_norm': 16.90218162536621, 'learning_rate': 1.677567567567568e-05, 'epoch': 0.52}
+{'loss': 0.4319, 'grad_norm': 12.629958152770996, 'learning_rate': 1.664054054054054e-05, 'epoch': 0.54}
+{'loss': 0.6789, 'grad_norm': 0.814302921295166, 'learning_rate': 1.6505405405405405e-05, 'epoch': 0.56}
+{'loss': 0.2735, 'grad_norm': 4.424839973449707, 'learning_rate': 1.6370270270270273e-05, 'epoch': 0.58}
+{'loss': 0.489, 'grad_norm': 1.8040968179702759, 'learning_rate': 1.6235135135135137e-05, 'epoch': 0.6}
+{'loss': 0.2096, 'grad_norm': 14.11176586151123, 'learning_rate': 1.6100000000000002e-05, 'epoch': 0.62}
+{'loss': 0.2702, 'grad_norm': 1.7864446640014648, 'learning_rate': 1.5964864864864866e-05, 'epoch': 0.64}
+{'loss': 0.5407, 'grad_norm': 14.07101058959961, 'learning_rate': 1.582972972972973e-05, 'epoch': 0.66}
+{'loss': 0.2635, 'grad_norm': 14.059860229492188, 'learning_rate': 1.5694594594594595e-05, 'epoch': 0.68}
+{'loss': 0.4551, 'grad_norm': 7.174742221832275, 'learning_rate': 1.555945945945946e-05, 'epoch': 0.7}
+{'loss': 0.4134, 'grad_norm': 5.355870723724365, 'learning_rate': 1.5424324324324324e-05, 'epoch': 0.72}
+{'loss': 0.4049, 'grad_norm': 16.37348747253418, 'learning_rate': 1.5289189189189192e-05, 'epoch': 0.74}
+{'loss': 0.2164, 'grad_norm': 0.0, 'learning_rate': 1.5154054054054055e-05, 'epoch': 0.76}
+{'loss': 0.336, 'grad_norm': 5.536362171173096, 'learning_rate': 1.5018918918918921e-05, 'epoch': 0.78}
+{'loss': 0.2923, 'grad_norm': 7.759838581085205, 'learning_rate': 1.4883783783783786e-05, 'epoch': 0.8}
+ 27%|███████████████████▍                                                     | 2000/7500 [3:48:35<9:36:56,  6.29s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:43<00:00,  1.84s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.8145751422406748, 'eval_rouge1': 0.01795556742125727, 'eval_r
+ougeL': 0.01794671716401687, 'eval_runtime': 465.2996, 'eval_samples_per_second': 0.537, 'eval_steps_per_second': 0.53
+7, 'epoch': 0.8}
+{'loss': 0.9254, 'grad_norm': 9.068679809570312, 'learning_rate': 1.4748648648648649e-05, 'epoch': 0.82}
+{'loss': 0.4736, 'grad_norm': 0.0, 'learning_rate': 1.4613513513513515e-05, 'epoch': 0.84}
+{'loss': 0.4547, 'grad_norm': 19.757596969604492, 'learning_rate': 1.447837837837838e-05, 'epoch': 0.86}
+ 29%|█████████████████████                                                    | 2164/7500 [4:14:39<9:41:19,  6.54s/it]
+{'loss': 0.3655, 'grad_norm': 10.298330307006836, 'learning_rate': 1.4343243243243244e-05, 'epoch': 0.88}
+{'loss': 0.3085, 'grad_norm': 4.540154457092285, 'learning_rate': 1.420810810810811e-05, 'epoch': 0.9}
+{'loss': 0.9058, 'grad_norm': 15.42534065246582, 'learning_rate': 1.4072972972972974e-05, 'epoch': 0.92}
+{'loss': 0.2078, 'grad_norm': 1.9796122312545776, 'learning_rate': 1.393783783783784e-05, 'epoch': 0.94}
+{'loss': 0.3352, 'grad_norm': 0.13326396048069, 'learning_rate': 1.3802702702702703e-05, 'epoch': 0.96}
+{'loss': 0.222, 'grad_norm': 8.367396354675293, 'learning_rate': 1.3667567567567568e-05, 'epoch': 0.98}
+{'loss': 0.5472, 'grad_norm': 4.550127029418945, 'learning_rate': 1.3532432432432434e-05, 'epoch': 1.0}
+{'loss': 0.2228, 'grad_norm': 0.1696164906024933, 'learning_rate': 1.3397297297297299e-05, 'epoch': 1.02}
+{'loss': 0.5255, 'grad_norm': 0.6509747505187988, 'learning_rate': 1.3262162162162165e-05, 'epoch': 1.04}
+{'loss': 0.2513, 'grad_norm': 10.65717601776123, 'learning_rate': 1.3127027027027028e-05, 'epoch': 1.06}
+{'loss': 0.4998, 'grad_norm': 0.0, 'learning_rate': 1.2991891891891892e-05, 'epoch': 1.08}
+{'loss': 0.1955, 'grad_norm': 4.923829078674316, 'learning_rate': 1.2856756756756758e-05, 'epoch': 1.1}
+{'loss': 0.4018, 'grad_norm': 18.345420837402344, 'learning_rate': 1.2721621621621623e-05, 'epoch': 1.12}
+{'loss': 0.453, 'grad_norm': 27.312875747680664, 'learning_rate': 1.2586486486486487e-05, 'epoch': 1.14}
+{'loss': 0.2978, 'grad_norm': 7.532919883728027, 'learning_rate': 1.2451351351351354e-05, 'epoch': 1.16}
+{'loss': 0.7147, 'grad_norm': 0.0, 'learning_rate': 1.2316216216216216e-05, 'epoch': 1.18}
+{'loss': 1.1474, 'grad_norm': 0.22656391561031342, 'learning_rate': 1.2181081081081083e-05, 'epoch': 1.2}
+ 40%|█████████████████████████████▏                                           | 3000/7500 [5:47:21<8:10:32,  6.54s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:49<00:00,  1.85s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.8025796938544147, 'eval_rouge1': 0.017813111945757427, 'eval_
+rougeL': 0.01783155228738864, 'eval_runtime': 471.6722, 'eval_samples_per_second': 0.53, 'eval_steps_per_second': 0.53
+, 'epoch': 1.2}
+{'loss': 0.158, 'grad_norm': 0.4539579749107361, 'learning_rate': 1.2045945945945947e-05, 'epoch': 1.22}
+{'loss': 0.196, 'grad_norm': 0.8268994092941284, 'learning_rate': 1.1910810810810812e-05, 'epoch': 1.24}
+{'loss': 0.1783, 'grad_norm': 3.450516700744629, 'learning_rate': 1.1775675675675678e-05, 'epoch': 1.26}
+{'loss': 0.1776, 'grad_norm': 1.9719603061676025, 'learning_rate': 1.164054054054054e-05, 'epoch': 1.28}
+{'loss': 0.1908, 'grad_norm': 1.9238847494125366, 'learning_rate': 1.1505405405405405e-05, 'epoch': 1.3}
+{'loss': 0.6787, 'grad_norm': 5.941353797912598, 'learning_rate': 1.1370270270270271e-05, 'epoch': 1.32}
+{'loss': 0.2142, 'grad_norm': 52.26534652709961, 'learning_rate': 1.1235135135135136e-05, 'epoch': 1.34}
+{'loss': 0.3788, 'grad_norm': 28.10318374633789, 'learning_rate': 1.1100000000000002e-05, 'epoch': 1.36}
+{'loss': 0.314, 'grad_norm': 15.352518081665039, 'learning_rate': 1.0964864864864867e-05, 'epoch': 1.38}
+{'loss': 0.2707, 'grad_norm': 3.671264410018921, 'learning_rate': 1.082972972972973e-05, 'epoch': 1.4}
+{'loss': 0.4652, 'grad_norm': 45.64483642578125, 'learning_rate': 1.0694594594594596e-05, 'epoch': 1.42}
+{'loss': 0.2345, 'grad_norm': 0.011047400534152985, 'learning_rate': 1.055945945945946e-05, 'epoch': 1.44}
+{'loss': 0.2797, 'grad_norm': 0.0, 'learning_rate': 1.0424324324324325e-05, 'epoch': 1.46}
+{'loss': 0.2258, 'grad_norm': 7.463912010192871, 'learning_rate': 1.0289189189189191e-05, 'epoch': 1.48}
+{'loss': 0.1855, 'grad_norm': 2.2856125831604004, 'learning_rate': 1.0156756756756759e-05, 'epoch': 1.5}
+{'loss': 0.6843, 'grad_norm': 2.5927908420562744, 'learning_rate': 1.0021621621621622e-05, 'epoch': 1.52}
+{'loss': 0.1802, 'grad_norm': 53.70016860961914, 'learning_rate': 9.886486486486488e-06, 'epoch': 1.54}
+{'loss': 0.2864, 'grad_norm': 23.688371658325195, 'learning_rate': 9.751351351351352e-06, 'epoch': 1.56}
+{'loss': 0.1517, 'grad_norm': 0.012249225750565529, 'learning_rate': 9.616216216216217e-06, 'epoch': 1.58}
+{'loss': 0.7149, 'grad_norm': 7.441340923309326, 'learning_rate': 9.481081081081081e-06, 'epoch': 1.6}
+ 53%|██████████████████████████████████████▉                                  | 4000/7500 [7:45:34<6:35:55,  6.79s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:44<00:00,  1.83s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.8030329627884094, 'eval_rouge1': 0.017837604920032245, 'eval_
+rougeL': 0.01782963269291234, 'eval_runtime': 466.1684, 'eval_samples_per_second': 0.536, 'eval_steps_per_second': 0.5
+36, 'epoch': 1.6}
+{'loss': 0.4567, 'grad_norm': 0.07327062636613846, 'learning_rate': 9.345945945945946e-06, 'epoch': 1.62}
+{'loss': 0.181, 'grad_norm': 8.443451881408691, 'learning_rate': 9.210810810810812e-06, 'epoch': 1.64}
+{'loss': 0.215, 'grad_norm': 12.845611572265625, 'learning_rate': 9.075675675675677e-06, 'epoch': 1.66}
+{'loss': 0.3458, 'grad_norm': 6.846192836761475, 'learning_rate': 8.940540540540541e-06, 'epoch': 1.68}
+{'loss': 0.8475, 'grad_norm': 3.9951038360595703, 'learning_rate': 8.805405405405406e-06, 'epoch': 1.7}
+{'loss': 0.3955, 'grad_norm': 4.290645122528076, 'learning_rate': 8.670270270270272e-06, 'epoch': 1.72}
+{'loss': 0.2724, 'grad_norm': 57.2122802734375, 'learning_rate': 8.535135135135136e-06, 'epoch': 1.74}
+{'loss': 0.1808, 'grad_norm': 1.0254557132720947, 'learning_rate': 8.400000000000001e-06, 'epoch': 1.76}
+{'loss': 0.297, 'grad_norm': 0.3911915421485901, 'learning_rate': 8.264864864864865e-06, 'epoch': 1.78}
+{'loss': 0.2446, 'grad_norm': 6.8237996101379395, 'learning_rate': 8.12972972972973e-06, 'epoch': 1.8}
+{'loss': 0.2525, 'grad_norm': 0.37630829215049744, 'learning_rate': 7.994594594594596e-06, 'epoch': 1.82}
+{'loss': 0.1436, 'grad_norm': 66.5331802368164, 'learning_rate': 7.859459459459459e-06, 'epoch': 1.84}
+{'loss': 0.2138, 'grad_norm': 1.318044900894165, 'learning_rate': 7.724324324324325e-06, 'epoch': 1.86}
+{'loss': 0.3558, 'grad_norm': 1.0730875730514526, 'learning_rate': 7.58918918918919e-06, 'epoch': 1.88}
+{'loss': 0.3628, 'grad_norm': 10.206241607666016, 'learning_rate': 7.454054054054055e-06, 'epoch': 1.9}
+{'loss': 0.3065, 'grad_norm': 14.991552352905273, 'learning_rate': 7.3189189189189195e-06, 'epoch': 1.92}
+{'loss': 0.2909, 'grad_norm': 5.123782157897949, 'learning_rate': 7.183783783783784e-06, 'epoch': 1.94}
+{'loss': 0.3949, 'grad_norm': 0.22445565462112427, 'learning_rate': 7.048648648648649e-06, 'epoch': 1.96}
+{'loss': 0.3674, 'grad_norm': 11.158681869506836, 'learning_rate': 6.913513513513515e-06, 'epoch': 1.98}
+{'loss': 0.4411, 'grad_norm': 70.23936462402344, 'learning_rate': 6.778378378378378e-06, 'epoch': 2.0}
+ 67%|████████████████████████████████████████████████▋                        | 5000/7500 [9:43:30<5:09:27,  7.43s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:43<00:00,  1.83s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.8106919267930026, 'eval_rouge1': 0.017943060264567552, 'eval_
+rougeL': 0.01790549475045288, 'eval_runtime': 465.7668, 'eval_samples_per_second': 0.537, 'eval_steps_per_second': 0.5
+37, 'epoch': 2.0}
+{'loss': 0.258, 'grad_norm': 51.37773132324219, 'learning_rate': 6.643243243243244e-06, 'epoch': 2.02}
+{'loss': 0.0821, 'grad_norm': 8.60794448852539, 'learning_rate': 6.508108108108109e-06, 'epoch': 2.04}
+{'loss': 0.262, 'grad_norm': 0.03838913515210152, 'learning_rate': 6.372972972972974e-06, 'epoch': 2.06}
+{'loss': 0.4302, 'grad_norm': 10.95113754272461, 'learning_rate': 6.237837837837838e-06, 'epoch': 2.08}
+{'loss': 0.2653, 'grad_norm': 0.7512893080711365, 'learning_rate': 6.102702702702703e-06, 'epoch': 2.1}
+{'loss': 0.244, 'grad_norm': 22.461809158325195, 'learning_rate': 5.967567567567568e-06, 'epoch': 2.12}
+{'loss': 0.0761, 'grad_norm': 0.024100203067064285, 'learning_rate': 5.832432432432433e-06, 'epoch': 2.14}
+{'loss': 0.1579, 'grad_norm': 7.842141151428223, 'learning_rate': 5.697297297297297e-06, 'epoch': 2.16}
+{'loss': 0.2841, 'grad_norm': 0.009619803167879581, 'learning_rate': 5.562162162162162e-06, 'epoch': 2.18}
+{'loss': 0.2116, 'grad_norm': 0.7095671892166138, 'learning_rate': 5.427027027027028e-06, 'epoch': 2.2}
+{'loss': 0.1248, 'grad_norm': 0.0, 'learning_rate': 5.291891891891892e-06, 'epoch': 2.22}
+{'loss': 0.5763, 'grad_norm': 0.08324349671602249, 'learning_rate': 5.156756756756757e-06, 'epoch': 2.24}
+{'loss': 0.1209, 'grad_norm': 22.34132957458496, 'learning_rate': 5.021621621621622e-06, 'epoch': 2.26}
+{'loss': 0.2749, 'grad_norm': 62.22726821899414, 'learning_rate': 4.886486486486487e-06, 'epoch': 2.28}
+{'loss': 0.1934, 'grad_norm': 10.052257537841797, 'learning_rate': 4.751351351351351e-06, 'epoch': 2.3}
+{'loss': 0.1293, 'grad_norm': 0.011216915212571621, 'learning_rate': 4.6162162162162165e-06, 'epoch': 2.32}
+{'loss': 0.1318, 'grad_norm': 0.08687696605920792, 'learning_rate': 4.481081081081081e-06, 'epoch': 2.34}
+{'loss': 0.1811, 'grad_norm': 0.29939889907836914, 'learning_rate': 4.345945945945946e-06, 'epoch': 2.36}
+{'loss': 0.1426, 'grad_norm': 2.9408071041107178, 'learning_rate': 4.210810810810811e-06, 'epoch': 2.38}
+{'loss': 0.1577, 'grad_norm': 0.22368554770946503, 'learning_rate': 4.075675675675676e-06, 'epoch': 2.4}
+ 80%|█████████████████████████████████████████████████████████▌              | 6000/7500 [11:42:38<2:51:52,  6.87s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:48<00:00,  1.85s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.808674502348707, 'eval_rouge1': 0.017889361140493897, 'eval_r
+ougeL': 0.01785488354209896, 'eval_runtime': 470.9962, 'eval_samples_per_second': 0.531, 'eval_steps_per_second': 0.53
+1, 'epoch': 2.4}
+ 80%|█████████████████████████████████████████████████████████▉              | 6030/7500 [11:53:50<2:47:27,  6.84s/it]
+{'loss': 0.2784, 'grad_norm': 0.2516157627105713, 'learning_rate': 3.943243243243244e-06, 'epoch': 2.42}
+{'loss': 0.1555, 'grad_norm': 0.32619690895080566, 'learning_rate': 3.8081081081081083e-06, 'epoch': 2.44}
+{'loss': 0.388, 'grad_norm': 11.878421783447266, 'learning_rate': 3.6729729729729736e-06, 'epoch': 2.46}
+{'loss': 0.2447, 'grad_norm': 0.0, 'learning_rate': 3.537837837837838e-06, 'epoch': 2.48}
+{'loss': 0.0771, 'grad_norm': 0.0010684886947274208, 'learning_rate': 3.402702702702703e-06, 'epoch': 2.5}
+{'loss': 0.1662, 'grad_norm': 9.400182723999023, 'learning_rate': 3.2675675675675676e-06, 'epoch': 2.52}
+{'loss': 0.0799, 'grad_norm': 0.08210824429988861, 'learning_rate': 3.132432432432433e-06, 'epoch': 2.54}
+{'loss': 0.1651, 'grad_norm': 0.00733742443844676, 'learning_rate': 2.9972972972972975e-06, 'epoch': 2.56}
+{'loss': 0.1883, 'grad_norm': 53.44795227050781, 'learning_rate': 2.8621621621621624e-06, 'epoch': 2.58}
+{'loss': 0.0801, 'grad_norm': 1.1409718990325928, 'learning_rate': 2.7270270270270273e-06, 'epoch': 2.6}
+{'loss': 0.249, 'grad_norm': 46.51816940307617, 'learning_rate': 2.594594594594595e-06, 'epoch': 2.62}
+{'loss': 0.2927, 'grad_norm': 7.2247538566589355, 'learning_rate': 2.45945945945946e-06, 'epoch': 2.64}
+{'loss': 0.2216, 'grad_norm': 0.12661784887313843, 'learning_rate': 2.3243243243243247e-06, 'epoch': 2.66}
+{'loss': 0.1395, 'grad_norm': 36.06492614746094, 'learning_rate': 2.1891891891891897e-06, 'epoch': 2.68}
+{'loss': 0.142, 'grad_norm': 0.05552854761481285, 'learning_rate': 2.054054054054054e-06, 'epoch': 2.7}
+{'loss': 0.1563, 'grad_norm': 32.44500732421875, 'learning_rate': 1.918918918918919e-06, 'epoch': 2.72}
+{'loss': 0.5303, 'grad_norm': 7.976873874664307, 'learning_rate': 1.783783783783784e-06, 'epoch': 2.74}
+{'loss': 0.2563, 'grad_norm': 0.0331096388399601, 'learning_rate': 1.6486486486486488e-06, 'epoch': 2.76}
+{'loss': 0.1397, 'grad_norm': 11.992942810058594, 'learning_rate': 1.5135135135135137e-06, 'epoch': 2.78}
+{'loss': 0.0921, 'grad_norm': 0.09812852740287781, 'learning_rate': 1.3783783783783786e-06, 'epoch': 2.8}
+ 93%|█████████████████████████████████████████████████████████████████████     | 7000/7500 [13:40:48<54:56,  6.59s/it]
+[compute_metrics]: STARTING...██████████████████████████████████████████████████████| 250/250 [07:46<00:00,  1.83s/it]
+[compute_metrics]: Received 250 predictions (as a list).
+[compute_metrics]: Received 250 labels (as a list).
+[compute_metrics]: Replacing -100 in labels (list processing)...
+[compute_metrics]: Decoding predictions...
+[compute_metrics]: Decoding labels...
+[compute_metrics]: Post-processing strings...
+[compute_metrics]: Calculating SQuAD metrics...
+[compute_metrics]: Calculating ROUGE metrics...
+[compute_metrics]: FINISHED.
+
+{'eval_loss': nan, 'eval_exact_match': 0.0, 'eval_f1': 1.7940240420495588, 'eval_rouge1': 0.017722965580851305, 'eval_
+rougeL': 0.017706846130956647, 'eval_runtime': 468.5865, 'eval_samples_per_second': 0.534, 'eval_steps_per_second': 0.
+534, 'epoch': 2.8}
+{'loss': 0.1497, 'grad_norm': 0.0, 'learning_rate': 1.2432432432432434e-06, 'epoch': 2.82}
+{'loss': 0.1183, 'grad_norm': 10.672181129455566, 'learning_rate': 1.1081081081081083e-06, 'epoch': 2.84}
+{'loss': 0.3244, 'grad_norm': 6.067023754119873, 'learning_rate': 9.72972972972973e-07, 'epoch': 2.86}
+{'loss': 0.2349, 'grad_norm': 32.40808868408203, 'learning_rate': 8.37837837837838e-07, 'epoch': 2.88}
+{'loss': 0.1156, 'grad_norm': 0.13568638265132904, 'learning_rate': 7.027027027027028e-07, 'epoch': 2.9}
+{'loss': 0.1901, 'grad_norm': 0.007031152490526438, 'learning_rate': 5.675675675675676e-07, 'epoch': 2.92}
+{'loss': 0.0977, 'grad_norm': 0.014029620215296745, 'learning_rate': 4.324324324324325e-07, 'epoch': 2.94}
+{'loss': 0.5117, 'grad_norm': 186.4202117919922, 'learning_rate': 2.972972972972973e-07, 'epoch': 2.96}
+{'loss': 0.1616, 'grad_norm': 0.0, 'learning_rate': 1.6216216216216218e-07, 'epoch': 2.98}
+{'loss': 0.1114, 'grad_norm': 0.4355204701423645, 'learning_rate': 2.702702702702703e-08, 'epoch': 3.0}
+{'train_runtime': 53008.8571, 'train_samples_per_second': 1.132, 'train_steps_per_second': 0.141, 'train_loss': 0.3781
+8985166549685, 'epoch': 3.0}
+100%|██████████████████████████████████████████████████████████████████████████| 7500/7500 [14:43:28<00:00,  7.07s/it]
+
+Saving final model...
+Saved PEFT/LoRA weights and tokenizer to results/deepseek_finetuned/final_peft_lora
+Saved training metrics to results/deepseek_finetuned/training_metrics.json
+(rag_train_env) teaching@dslab:~/g4$
+(rag_train_env) teaching@dslab:~/g4$
+(rag_train_env) teaching@dslab:~/g4$ ls
+data_prep  env1.yml  environment.yml  models  results  training
+(rag_train_env) teaching@dslab:~/g4$ ls results/
+deepseek_finetuned
+(rag_train_env) teaching@dslab:~/g4$ ls results/deepseek_finetuned/
+checkpoint-1000  checkpoint-7000  checkpoint-7500  final_peft_lora  final_peft_lora_old  training_metrics.json
+(rag_train_env) teaching@dslab:~/g4$ rm results/deepseek_finetuned/final_peft_lora_old/
+rm: cannot remove 'results/deepseek_finetuned/final_peft_lora_old/': Is a directory
+(rag_train_env) teaching@dslab:~/g4$ rm -r results/deepseek_finetuned/final_peft_lora_old/
+(rag_train_env) teaching@dslab:~/g4$ mkdir logs
+(rag_train_env) teaching@dslab:~/g4$ cd logs/
+(rag_train_env) teaching@dslab:~/g4/logs$ tmux capture-pane -S -300
+

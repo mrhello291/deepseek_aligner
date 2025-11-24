@@ -140,3 +140,13 @@ vocab.json
 
 # VSCode
 .vscode/
+
+# weights
+final_lora/
+failed_model/
+
+#datasets
+hard_fakes_vllm.jsonl
+datasets/
+main_datasets/
+HaluEval/

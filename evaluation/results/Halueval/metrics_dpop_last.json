@@ -1,0 +1,11 @@
+{
+  "model": "models/llama3-2-3b-instruct",
+  "lora_path": "dpop_results/final_model/",
+  "method": "sentence_transformer_similarity",
+  "hallucination_rate": 0.0802,
+  "avg_confidence_margin": 0.5408245110055665,
+  "avg_bert_score": 0.8161980397672626,
+  "avg_bleu": 0.08217170568079271,
+  "avg_rouge_l": 0.7993810313588069,
+  "total_samples": 10000
+}

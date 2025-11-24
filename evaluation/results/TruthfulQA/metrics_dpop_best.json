@@ -1,0 +1,8 @@
+{
+  "model": "models/llama3-2-3b-instruct",
+  "lora": "first_improvement/training/final_lora/",
+  "mc1": 0.24969400244798043,
+  "mc2": 0.42495460337355007,
+  "gen_truthfulness": 0.6646266829865362,
+  "gen_avg_prob": 0.6619433931070982
+}

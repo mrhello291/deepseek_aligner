@@ -1,0 +1,8 @@
+{
+  "model": "models/llama3-2-3b-instruct",
+  "lora": "dpop_results/final_model/",
+  "mc1": 0.26560587515299877,
+  "mc2": 0.4434745650401108,
+  "gen_truthfulness": 0.7356181150550796,
+  "gen_avg_prob": 0.727902375281214
+}

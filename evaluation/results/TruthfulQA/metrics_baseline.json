@@ -1,0 +1,8 @@
+{
+  "model": "models/llama3-2-3b-instruct",
+  "lora": null,
+  "mc1": 0.2668298653610771,
+  "mc2": 0.443230837144667,
+  "gen_truthfulness": 0.7135862913096696,
+  "gen_avg_prob": 0.7131667156701615
+}
