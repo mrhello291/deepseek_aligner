@@ -122,7 +122,7 @@ models/
 data/
 *.pkl
 *.bm25.pkl
-*.jsonl
+# *.jsonl
 results.jsonl
 guardrailed_results.jsonl
 final_dpo_no_guardrails.jsonl

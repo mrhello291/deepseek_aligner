@@ -1,6 +1,0 @@
-{
-  "hallucination_rate": 0.1697,
-  "avg_faithfulness": 0.6940378660134972,
-  "avg_bert_f1": 0.8071799417441973,
-  "total": 10000
-}
