@@ -139,7 +139,7 @@ into a common format:
 
 ---
 
-# **4. Easy Fake Generation (Topic Mismatch)**
+## **3.2. Easy Fake Generation (Topic Mismatch)**
 
 **Script: `generate_easy_fakes.py`**
 
@@ -154,7 +154,7 @@ Output:
 
 ---
 
-# **5. Medium Fake Generation (NER Entity Swaps)**
+## **3.3. Medium Fake Generation (NER Entity Swaps)**
 
 **Script: `generate_medium_fakes.py`**
 
@@ -173,7 +173,7 @@ Output:
 
 ---
 
-# **6. Hard Fake Generation (LLM-Synthesized Hallucinations)**
+## **3.4. Hard Fake Generation (LLM-Synthesized Hallucinations)**
 
 **Script: `generate_hard_fakes.py`**
 
@@ -201,9 +201,9 @@ Outputs:
 
 ---
 
-# **7. Restoring SFT Context for Each Fake Sample**
+## **3.5. Restoring SFT Context for Each Fake Sample**
 
-**Script: context-injection**
+**Script: context-injection (fix fakes)**
 
 Fakes (easy/medium/hard) contain only:
 
@@ -228,7 +228,7 @@ These are now valid preference-learning samples.
 
 ---
 
-# **8. Curriculum-Aligned DPO Pair Construction**
+# **4. Curriculum-Aligned DPO Pair Construction**
 
 **Script: DPO dataset creator**
 
@@ -260,7 +260,7 @@ This set is what trained the **best model**.
 
 ---
 
-# **9. Teacher-Guided Hard Negative Generation (vLLM-Based Synthetic Pairs)**
+# **5. Teacher-Guided Hard Negative Generation (vLLM-Based Synthetic Pairs)**
 
 *(Used only for the Latest Model)*
 
