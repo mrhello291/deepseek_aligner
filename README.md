@@ -395,5 +395,3 @@ Future work must focus on **balanced alignment**, where:
 * Instruction capabilities are actively reinforced rather than overwritten.
 
 Achieving this balance—truthfulness without sacrificing instruction fidelity—is now the central goal for the next iteration of the model.
-
----
