@@ -1,4 +1,4 @@
-# DeepSeek Aligner
+# Hallucination Aligner
 
 ## Important Research Papers and Links
 
